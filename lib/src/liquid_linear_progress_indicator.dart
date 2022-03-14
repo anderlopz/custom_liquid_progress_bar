@@ -17,6 +17,9 @@ class LiquidLinearProgressIndicator extends ProgressIndicator {
   ///The direction the liquid travels.
   final Axis direction;
 
+  ///The control of wave height
+  final double? waveH;
+
   LiquidLinearProgressIndicator({
     Key? key,
     double value = 0.5,
@@ -26,6 +29,7 @@ class LiquidLinearProgressIndicator extends ProgressIndicator {
     this.borderColor,
     this.borderRadius,
     this.center,
+    this.waveH = 20,
     this.direction = Axis.horizontal,
   }) : super(
           key: key,
@@ -71,6 +75,7 @@ class _LiquidLinearProgressIndicatorState
           children: <Widget>[
             Wave(
               value: widget.value,
+              waveH: widget.waveH,
               color: widget._getValueColor(context),
               direction: widget.direction,
             ),
